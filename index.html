@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#102a44">
+<title>RoboTrain v0.2 | ロボット手術教育ログ</title>
+<style>
+:root{--navy:#102b45;--navy2:#173d57;--ink:#173146;--inksoft:#5b6e7d;--teal:#147e84;--teal2:#0d686e;--sky:#e9f7f5;--bg:#f4f7fa;--card:#fff;--line:#dce6ec;--orange:#bf854c;--red:#a74745;--shadow:0 5px 26px rgba(15,39,62,.055);color-scheme:light;font-family:system-ui,-apple-system,'Hiragino Kaku Gothic ProN','Noto Sans JP',Meiryo,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);line-height:1.65}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.5;cursor:not-allowed}[hidden]{display:none!important}a{color:#087481}a:hover{text-decoration-thickness:2px}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid #52b4ba;outline-offset:2px}.shell{max-width:1160px;margin:0 auto;padding:22px 24px 54px}.hero{background:linear-gradient(117deg,#0f2d49 0%,#155167 59%,#16818a 100%);border-radius:19px;padding:30px 32px;color:#fff;display:flex;justify-content:space-between;gap:24px;align-items:center;box-shadow:0 10px 24px #14334c1c}.hero-eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#a8e2e2;font-weight:850}.brand{display:flex;gap:10px;align-items:center}.brand h1{font-size:31px;line-height:1.1;margin:7px 0 8px;letter-spacing:-1px}.version{font-size:12px;letter-spacing:.03em;background:#ffffff24;border:1px solid #ffffff44;padding:4px 9px;border-radius:50px;white-space:nowrap;font-weight:700}.hero p{margin:0;color:#daedef;max-width:660px;font-size:14px}.hero-mark{flex:0 0 120px;height:108px;border:1px solid #ffffff3a;background:#ffffff12;border-radius:21px;display:flex;align-items:center;justify-content:center;position:relative}.hero-mark svg{width:70px;height:70px}.mark-ring{position:absolute;width:13px;height:13px;border-radius:50%;background:#8be2d5;right:21px;top:18px;box-shadow:0 0 0 5px #ffffff14}.topmeta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding:12px 3px 5px;font-size:12px;color:var(--inksoft)}.pills{display:flex;gap:7px;flex-wrap:wrap}.pill{display:inline-flex;gap:6px;align-items:center;border-radius:40px;background:#e9eeef;padding:5px 11px;font-size:11px;font-weight:800;color:#3a6570}.pill.green{background:#ddf2ec;color:#166c64}.tabs{display:flex;gap:7px;margin:14px 0 22px;border-bottom:1px solid #d8e3ea;overflow-x:auto;white-space:nowrap;scrollbar-width:thin}.tab{border:0;border-bottom:3px solid transparent;border-radius:10px 10px 0 0;background:transparent;color:#566b7d;padding:13px 16px;font-weight:800;min-width:max-content}.tab:hover{background:#e8f1f5}.tab[aria-selected=true]{border-bottom-color:var(--teal);background:#e6f2f2;color:#145e64}.page{animation:fade .16s ease}.page:not(.active){display:none}@keyframes fade{from{opacity:.7}to{opacity:1}}.page-heading{display:flex;justify-content:space-between;gap:16px;align-items:end;margin-bottom:16px}.page-heading h2{font-size:22px;line-height:1.3;letter-spacing:-.4px;margin:0 0 4px}.lead{margin:0;color:var(--inksoft);font-size:13px}.panel{background:var(--card);border:1px solid #e5edf1;border-radius:17px;box-shadow:var(--shadow);padding:23px 25px;margin-bottom:17px}.panel h3{font-size:17px;line-height:1.35;margin:0 0 16px;letter-spacing:-.2px}.panel h4{font-size:14px;margin:0 0 8px}.subhead{font-size:13px;text-transform:uppercase;letter-spacing:.07em;color:#246c72;font-weight:850;margin:6px 0 16px;padding-bottom:9px;border-bottom:1px solid var(--line)}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 19px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.full{grid-column:1/-1}label.field,fieldset.field{display:block;margin:0;color:#3b5567;font-size:13px;font-weight:750}.field small{display:block;color:#82929b;font-size:11px;font-weight:450;margin-top:4px}.field input:not([type=range]),.field select,.field textarea{display:block;width:100%;background:#fff;color:var(--ink);padding:11px 12px;border:1px solid #cddde5;border-radius:10px;margin-top:6px;min-width:0}.field textarea{min-height:83px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{border-color:#29a4a5}.note{color:#506c7b;background:#f0f5f8;border:1px solid #e1ecf1;border-radius:11px;padding:12px 14px;font-size:12px}.note.mint{background:#eef9f5;border-color:#d6eee7;color:#31635d}.note.warn{background:#fff8ec;border-color:#f1e3cc;color:#815b31}.subtle{color:var(--inksoft);font-size:12px}.button{border:1px solid transparent;border-radius:10px;padding:10px 15px;font-size:13px;font-weight:800;transition:background .15s,transform .15s;white-space:nowrap}.button:active{transform:translateY(1px)}.primary{color:white;background:#147982}.primary:hover{background:#0d666d}.secondary{color:#23566a;background:#e9f2f5}.secondary:hover{background:#d9edf2}.outline{color:#245b70;background:#fff;border-color:#cbdde4}.outline:hover{background:#f6fafb}.danger{background:#fff2ef;color:#a74745}.danger:hover{background:#fbe1dd}.ghost{color:#516b7c;background:transparent}.smallbtn{font-size:11px;padding:6px 9px;border-radius:7px}.actions{display:flex;flex-wrap:wrap;gap:9px;align-items:center}.inline-strong{font-weight:850;color:#0d737b}.step{display:flex;align-items:center;gap:9px;font-size:16px;font-weight:850;letter-spacing:-.2px;margin:6px 0 17px}.step b{display:grid;place-items:center;width:29px;height:29px;border-radius:9px;background:#e0f2f0;color:#126e73;font-size:13px}.divider{border:0;border-top:1px solid #e7edf0;margin:25px 0}.rangebox{display:flex;gap:18px;align-items:center}.rangebox input{width:100%;accent-color:#14838c;margin:6px 0}.rangeval{border-radius:11px;min-width:64px;padding:6px 11px;background:#e5f6f4;font-size:24px;font-weight:900;color:#116c74;text-align:center}.radio-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:9px}.radio-option{position:relative}.radio-option input{position:absolute;width:1px;height:1px;opacity:0;left:50%;top:50%;pointer-events:none}.radio-option label{display:block;height:100%;border:1px solid #d7e5e8;border-radius:11px;padding:11px 8px;cursor:pointer;text-align:center;background:#fff;font-size:12px}.radio-option label strong{font-size:24px;display:block;color:#38677b}.radio-option label span{font-size:11px;font-weight:850;display:block;white-space:nowrap;margin:2px 0}.radio-option label em{font-size:11px;font-style:normal;font-weight:450;color:#6d838a}.radio-option input:checked+label{background:#e4f6f1;border:2px solid #13908b;padding:10px 7px}.radio-option input:focus-visible+label{outline:3px solid #4ab6bc;outline-offset:2px}.previewline{margin:8px 0 0;font-size:12px;color:#50727d}.hint{font-size:12px;color:#607886;margin:9px 0 0}.editnotice{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px;border-radius:11px;background:#fffae9;border:1px solid #f6e9bd;padding:10px 13px;color:#826b30;font-size:13px}.success-card{background:linear-gradient(115deg,#f0faf6,#edf7fa);border:1px solid #cbe6dc;border-radius:16px;padding:19px 20px;margin-top:18px}.success-card h3{color:#136c69;margin:0 0 5px}.mentor-quote{font-size:16px;font-weight:700;line-height:1.85;color:#255e67;margin:9px 0 8px;white-space:pre-wrap}.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.kpi{background:#fff;border:1px solid #e0e9ee;border-radius:14px;padding:16px 18px;box-shadow:var(--shadow)}.kpi .val{font-weight:900;font-size:27px;line-height:1.35;letter-spacing:-1.2px;color:#156e78;font-variant-numeric:tabular-nums}.kpi .ttl{font-size:12px;color:#677e8a;font-weight:650}.kpi .foot{margin-top:7px;font-size:11px;color:#8a9ca4}.filters{display:flex;gap:11px;flex-wrap:wrap;align-items:end}.filters .field{min-width:190px;flex:1;max-width:360px}.chart-toggle{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}.chip{border:1px solid #d6e4e8;background:#fff;color:#587380;border-radius:9px;padding:7px 13px;font-size:12px;font-weight:750}.chip.active{background:#daf3ee;color:#075f63;border-color:#86c7bd}.chart-wrap{width:100%;overflow:hidden;border-radius:12px;background:#fbfdfd;border:1px solid #e9f1f3;padding:12px 12px 0}.chart-svg{display:block;width:100%;height:auto;max-height:340px}.chart-svg text{font:13px system-ui,'Noto Sans JP',sans-serif;fill:#728692}.chart-svg .axis{stroke:#d3e1e7;stroke-width:1}.chart-svg .trendline{stroke:#117e86;stroke-width:3;fill:none;stroke-linejoin:round;stroke-linecap:round}.chart-svg .dot{fill:#127e88;stroke:#fff;stroke-width:2;cursor:help}.chart-svg .guide{stroke:#afc1c7;stroke-dasharray:4 5;stroke-width:1}.chart-svg .xtext{text-anchor:middle;font-size:11px}.chart-svg .center-message{fill:#7b909c;text-anchor:middle;font-size:16px}.progress-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.progress-compare{border-radius:13px;border:1px solid #e4ecef;background:#fbfdfd;padding:16px}.progress-compare .headline{font-size:12px;font-weight:850;color:#45677a;margin-bottom:8px}.progress-compare .bigline{font-size:23px;font-weight:850;color:#126b72;letter-spacing:-.4px}.progress-compare p{font-size:11px;color:#6e8390;margin:5px 0 0}.split{display:grid;grid-template-columns:1.25fr .75fr;gap:16px}.trait{border-left:4px solid #61b6a5;background:#f1faf7;border-radius:9px;padding:13px 15px}.table-scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:800px;font-size:12px}th{text-align:left;white-space:nowrap;color:#637b88;font-weight:800;background:#f6fafb}td,th{padding:12px 10px;border-bottom:1px solid #e8f0f3}td{color:#355165}td:nth-child(3){min-width:190px}.tag{border-radius:6px;padding:3px 7px;background:#edf4f6;color:#386978;font-size:11px;font-weight:750;white-space:nowrap}.tag.demo{background:#fff2dc;color:#98652b}.muted{color:#728692}.empty{padding:28px 16px;border:1px dashed #cfdfe4;border-radius:13px;text-align:center;color:#69808f;font-size:13px;background:#f9fcfd}.mini-row{display:flex;gap:10px;align-items:start;justify-content:space-between;border-top:1px solid #e7edf0;padding:15px 0}.mini-row:first-child{border-top:0;padding-top:0}.mini-date{font-size:11px;color:#758d99;font-weight:650;margin-bottom:6px}.mini-msg{font-size:13px;color:#345c68;line-height:1.8}.mentor-hero{border-radius:17px;background:linear-gradient(133deg,#edf9f5,#edf6f9);border:1px solid #d6ede8;padding:25px 27px;margin-bottom:16px}.mentor-symbol{width:40px;height:40px;border-radius:14px;background:#d4efe8;display:grid;place-items:center;font-size:22px;margin-bottom:9px}.mentor-hero h3{font-size:17px;margin:0 0 10px}.mentor-hero .quote{font-size:18px;line-height:1.95;font-weight:740;color:#235f69;margin:8px 0}.promptbox{background:#fff;border-left:3px solid #3ba797;padding:12px 15px;border-radius:8px;margin:14px 0 0;color:#365f65;font-size:13px}.ref-item{border:1px solid #e2eaf0;border-radius:12px;padding:16px 17px;margin-bottom:11px}.ref-title{font-weight:830;color:#1b3f55;font-size:14px;line-height:1.55;margin:5px 0}.ref-note{font-size:12px;color:#536b78;margin:7px 0}.ref-meta{font-size:12px;color:#6e8490}.ref-link{font-size:12px;font-weight:800;text-decoration:none}.ref-link:hover{text-decoration:underline}.ref-badges{display:flex;gap:5px;align-items:center;flex-wrap:wrap}.ref-badge{font-size:10px;border-radius:5px;padding:2px 7px;background:#edf4f6;color:#426c7b;font-weight:850}.ref-badge.new{background:#dff2ed;color:#116760}.text-center{text-align:center}.help{display:inline-block;cursor:help;border-radius:50%;border:1px solid #acbfc8;height:17px;width:17px;line-height:15px;text-align:center;font-size:11px;color:#617b88;margin-left:4px}.footer{display:flex;justify-content:space-between;gap:20px;align-items:center;color:#718492;font-size:11px;padding:19px 0;flex-wrap:wrap;border-top:1px solid #dfe8eb;margin-top:18px}.toast{position:fixed;right:20px;bottom:20px;background:#203e52;color:white;padding:13px 17px;border-radius:11px;box-shadow:0 12px 35px #122d4740;z-index:500;max-width:min(450px,calc(100vw - 32px));font-size:13px;pointer-events:none}.overlay{position:fixed;inset:0;background:#0e263e90;z-index:200;display:flex;align-items:center;justify-content:center;padding:15px}.modal{width:min(680px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:18px;padding:24px 25px;box-shadow:0 19px 50px #04182b4a}.modalhead{display:flex;justify-content:space-between;gap:12px;align-items:center}.detailgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.detailcell{background:#f5f9fb;border-radius:9px;padding:9px 12px}.detailcell strong{display:block;color:#203f54;font-size:13px}.detailcell small{color:#788d96;font-size:11px}.ref-add-form{border:1px solid #dce9e6;background:#f8fcfa;border-radius:12px;padding:17px 18px}.warningbanner{border:1px solid #eddcb6;background:#fff8eb;color:#775930;border-radius:11px;padding:11px 14px;font-size:12px}.demo-strip{display:flex;align-items:center;justify-content:space-between;gap:15px;background:#f0f7f8;border:1px solid #dbebee;border-radius:12px;padding:12px 15px}.footer a{color:#506b7a}#storageWarning{display:none}#storageWarning.show{display:block}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:880px){.split{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-mark{display:none}.shell{padding:12px 14px 36px}.hero{padding:22px}.panel{padding:18px}}
+@media(max-width:600px){.hero{padding:23px 20px}.brand h1{font-size:27px}.page-heading{display:block}.page-heading .actions{margin-top:9px}.grid2,.grid3,.progress-cols{grid-template-columns:1fr}.radio-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.tabs{margin:12px 0 18px}.tab{padding:11px 13px;font-size:12px}.kpi{padding:13px}.kpi .val{font-size:22px}.panel{padding:15px}.mentor-hero{padding:19px}.mentor-hero .quote{font-size:16px}.filters .field{max-width:none}.detailgrid{grid-template-columns:1fr}.chart-wrap{padding:5px 1px 0}.chart-svg{min-height:190px}.footer{display:block}}
+@media(prefers-reduced-motion:reduce){.page{animation:none}.button{transition:none}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header class="hero">
+  <div>
+    <div class="hero-eyebrow">SURGICAL EDUCATION / PERSONAL GROWTH LOG</div>
+    <div class="brand"><h1>RoboTrain</h1><span class="version">Prototype v0.2</span></div>
+    <p>一例ずつの経験を、成長の軌跡に。ロボット手術の記録と、やさしい振り返りのためのアプリ。</p>
+  </div>
+  <div class="hero-mark" aria-hidden="true"><span class="mark-ring"></span><svg viewBox="0 0 100 100" fill="none" stroke="#e8ffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 26h56M22 37h56M50 26v32M50 58l-14 14m14-14 14 14M24 72h52"/><path d="M28 37v17l-9 9m53-26v17l9 9M50 14v12"/><circle cx="50" cy="13" r="5" fill="#9ceadd" stroke="none"/><circle cx="50" cy="57" r="5"/><circle cx="19" cy="64" r="4"/><circle cx="81" cy="64" r="4"/></svg></div>
+</header>
+<div class="topmeta"><span id="storageStatus">この端末のブラウザ内に保存 / サーバー送信なし</span><div class="pills"><span class="pill green">成長の推移を可視化</span><span class="pill">メンター：ローカル試作</span></div></div>
+<div id="storageWarning" class="warningbanner">このブラウザではローカル保存できない可能性があります。入力内容を失わないようにしてください。</div>
+<nav class="tabs" aria-label="メインメニュー" role="tablist">
+ <button type="button" class="tab" role="tab" aria-selected="true" data-page="entry">症例登録</button>
+ <button type="button" class="tab" role="tab" aria-selected="false" data-page="dashboard">成長ダッシュボード</button>
+ <button type="button" class="tab" role="tab" aria-selected="false" data-page="history">症例履歴・出力</button>
+ <button type="button" class="tab" role="tab" aria-selected="false" data-page="mentor">メンター</button>
+ <button type="button" class="tab" role="tab" aria-selected="false" data-page="references">参考文献</button>
+</nav>
+<main>
+<section id="entry" class="page active" role="tabpanel">
+  <div class="page-heading"><div><h2>今日の手術を記録する</h2><p class="lead">少しずつ積み重ねた記録が、あなただけの成長曲線になります。</p></div></div>
+  <div id="editNotice" class="editnotice" hidden><span>この症例を編集しています。保存すると元の記録を更新します。</span><button class="button outline smallbtn" id="cancelEdit" type="button">編集をやめる</button></div>
+  <form id="caseForm" class="panel">
+    <div class="step"><b>01</b> 手術の基本情報</div>
+    <div class="grid2">
+      <label class="field">手術日 <input id="surgeryDate" type="date" required></label>
+      <label class="field">トレイニーID（仮名） <input id="traineeId" maxlength="40" placeholder="例：T001" required autocomplete="off"><small>同じIDで登録すると、個人の経時的な推移にまとまります。</small></label>
+      <label class="field">術式 <select id="procedure" required><option>ロボット支援S状結腸切除</option><option>ロボット支援右半結腸切除</option><option>ロボット支援左半結腸切除</option><option>ロボット支援高位前方切除</option><option>ロボット支援低位前方切除</option><option>ロボット支援超低位前方切除</option><option>ロボット支援ISR</option><option>その他</option></select></label>
+      <label class="field">指導医ID（任意・仮名） <input id="facultyId" maxlength="40" placeholder="例：F001" autocomplete="off"></label>
+      <label class="field">手術時間（分） <input id="opMinutes" type="number" required min="1" max="2000" step="1" placeholder="例：210"></label>
+      <label class="field">総コンソール時間（分） <input id="totalConsoleMinutes" type="number" required min="1" max="2000" step="1" placeholder="例：160"></label>
+      <label class="field">自分のコンソール時間（分） <input id="traineeConsoleMinutes" type="number" required min="0" max="2000" step="1" placeholder="例：100"><small>交替前後を合計した、トレイニー自身の操作時間</small></label>
+      <label class="field">症例難易度 <select id="complexity"><option value="2">標準</option><option value="1">易しい</option><option value="3">難しい</option></select></label>
+      <div class="full note mint" id="consolePreview">コンソール担当率：時間を入力すると自動計算します。</div>
+    </div>
+    <hr class="divider">
+    <div class="step"><b>02</b> 経験・満足度を振り返る</div>
+    <div class="grid2">
+      <div class="field full"><label for="satisfaction" style="display:block">今日の満足度（0～10点）</label><div class="rangebox"><input id="satisfaction" type="range" min="0" max="10" step="1" value="7" aria-label="満足度"><output id="satisfactionValue" class="rangeval" for="satisfaction">7</output></div><small>自分自身が感じた満足度です。術者の能力や手術成績を判定する指標ではありません。</small></div>
+      <label class="field">指導医にコンソール交替したか <select id="switched"><option value="no">交替なし</option><option value="yes">交替あり</option></select></label>
+      <label class="field" id="returnedWrap" hidden>交替後に自分の再執刀があったか <select id="returned"><option value="yes">あり</option><option value="no">なし</option></select></label>
+      <label class="field">担当範囲を完遂できたか <select id="completion"><option value="complete">予定した担当範囲を完遂</option><option value="partial">一部を執刀（予定範囲の一部）</option><option value="not">予定範囲を完遂できず</option></select><small>「手術全体」ではなく、その日に予定された担当範囲で評価します。</small></label>
+    </div>
+    <hr class="divider">
+    <div class="step"><b>03</b> 自律度を記録する</div>
+    <label class="field">Zwisch scale（トレイニー自己評価） <span class="help" title="指導医による支援の程度から術中自律度を4段階で表す尺度です。技術能力の直接測定ではありません。">?</span></label>
+    <div class="radio-grid" role="radiogroup" aria-label="Zwisch scale自己評価">
+      <div class="radio-option"><input type="radio" name="zwisch" id="zwisch1" value="1" required><label for="zwisch1"><strong>1</strong><span>Show &amp; Tell</span><em>指導医による実演</em></label></div>
+      <div class="radio-option"><input type="radio" name="zwisch" id="zwisch2" value="2"><label for="zwisch2"><strong>2</strong><span>Active Help</span><em>積極的な指導</em></label></div>
+      <div class="radio-option"><input type="radio" name="zwisch" id="zwisch3" value="3"><label for="zwisch3"><strong>3</strong><span>Passive Help</span><em>必要時の支援</em></label></div>
+      <div class="radio-option"><input type="radio" name="zwisch" id="zwisch4" value="4"><label for="zwisch4"><strong>4</strong><span>Supervision Only</span><em>監督のみ</em></label></div>
+    </div>
+    <p class="hint">自律度は、手術の難易度や指導方針によっても変わります。低い段階も大切な記録です。</p>
+    <div class="grid2" style="margin-top:15px"><label class="field">指導医によるZwisch評価（任意） <select id="facultyZwisch"><option value="">未評価</option><option value="1">1：Show &amp; Tell</option><option value="2">2：Active Help</option><option value="3">3：Passive Help</option><option value="4">4：Supervision Only</option></select><small>自己評価と別に保存します。</small></label></div>
+    <hr class="divider">
+    <div class="step"><b>04</b> 今日の一言</div>
+    <div class="grid2">
+      <label class="field">今日できたこと（任意） <textarea id="achievement" maxlength="1500" placeholder="例：落ち着いて進められた場面があった"></textarea></label>
+      <label class="field">次回大切にしたいこと（任意） <textarea id="nextStep" maxlength="1500" placeholder="例：ひとつずつ確認しながら取り組みたい"></textarea></label>
+    </div>
+    <div class="note" style="margin-top:19px"><strong>研究運用前の注意：</strong> データはこのブラウザにのみ保存されます。実患者の氏名・診療番号・手術日と結びつく識別情報、自由記載中の個人情報は入力しないでください。認証・暗号化バックエンド・監査ログ・権限管理は未実装です。</div>
+    <div class="actions" style="margin-top:19px"><button type="submit" class="button primary" id="saveCase">症例を保存してメンターの言葉を受け取る</button><button type="button" class="button secondary" id="resetCase">入力をリセット</button><span id="formError" class="subtle" role="alert"></span></div>
+    <div class="success-card" id="saveSuccess" hidden><h3>記録を保存しました</h3><p class="subtle" id="saveCount" style="margin:0"></p><div class="mentor-quote" id="savedMentorMessage"></div><div class="actions"><button class="button secondary" type="button" id="goDashboard">成長曲線を確認する →</button><button class="button outline" type="button" id="goMentor">メンターの記録を見る</button></div></div>
+  </form>
+</section>
+<section id="dashboard" class="page" role="tabpanel">
+  <div class="page-heading"><div><h2>成長ダッシュボード</h2><p class="lead">自分の経験を、数値と時系列で見つめ直します。</p></div><div class="actions"><button class="button outline" id="demoToggle" type="button">サンプルで画面を試す</button></div></div>
+  <div class="panel"><div class="filters"><label class="field">トレイニーID <select id="dashboardTrainee"></select></label><label class="field">術式 <select id="dashboardProcedure"></select></label><label class="field">難易度 <select id="dashboardComplexity"><option value="">すべて</option><option value="1">易しい</option><option value="2">標準</option><option value="3">難しい</option></select></label></div><p class="hint" id="dashboardScope"></p></div>
+  <div class="kpis" style="margin-bottom:17px">
+    <div class="kpi"><div class="ttl">累積症例数</div><div class="val" id="metricCases">0</div><div class="foot">表示条件に一致する記録</div></div>
+    <div class="kpi"><div class="ttl">Zwisch 3–4の割合</div><div class="val" id="metricAutonomy">—</div><div class="foot">自己評価・記述的指標</div></div>
+    <div class="kpi"><div class="ttl">平均満足度</div><div class="val" id="metricSatisfaction">—</div><div class="foot">0–10点</div></div>
+    <div class="kpi"><div class="ttl">平均コンソール担当率</div><div class="val" id="metricShare">—</div><div class="foot">各症例の担当率の単純平均</div></div>
+  </div>
+  <div class="panel"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;align-items:start"><div><h3 style="margin:0">症例を重ねたときの推移</h3><p class="lead" style="margin:5px 0 12px">横軸：表示条件内の症例順（手術日順）</p></div></div><div class="chart-toggle" id="chartToggle"><button type="button" data-metric="zwisch" class="chip active">Zwisch</button><button type="button" data-metric="satisfaction" class="chip">満足度</button><button type="button" data-metric="share" class="chip">担当率</button><button type="button" data-metric="minutes" class="chip">コンソール時間</button></div><div class="chart-wrap"><svg class="chart-svg" id="trendChart" viewBox="0 0 980 310" role="img" aria-label="トレイニーの症例ごとの推移"></svg></div><p class="hint">Zwischは順序尺度です。線は推移を見やすくするための表示で、点差を連続量とみなしていません。グラフ上の点にカーソルを合わせると症例の情報を確認できます。</p></div>
+  <div class="split">
+    <div class="panel"><h3>最初の5例と最近の5例</h3><div id="compareContent" class="progress-cols"></div><p class="hint">10症例以上で表示します。症例難易度・指導者・術式などの違いを調整していない参考値です。因果関係や技能向上の証明ではありません。</p></div>
+    <div class="panel"><h3>その他の記録</h3><div id="moreMetrics" style="display:grid;gap:9px"></div><p class="hint">「完遂」は当日に予定した担当範囲の完遂を表します。</p></div>
+  </div>
+  <div class="panel"><h3>今のあなたへのメッセージ</h3><div class="trait"><div id="dashboardMentor" style="font-size:14px;font-weight:700;color:#285f66;white-space:pre-wrap">記録を積み重ねると、ここに振り返りの言葉が表示されます。</div><p class="hint" style="margin-bottom:0">v0.2ではローカルのルールで文章を作成しています。生成AIへの通信はありません。</p></div></div>
+</section>
+<section id="history" class="page" role="tabpanel">
+  <div class="page-heading"><div><h2>症例履歴とデータ管理</h2><p class="lead">症例を見返す・編集する・バックアップすることができます。</p></div></div>
+  <div class="panel"><div class="actions"><button type="button" class="button primary" id="downloadJson">バックアップ（JSON）</button><button type="button" class="button secondary" id="downloadCsv">CSVを書き出す</button><button type="button" class="button outline" id="pickImport">バックアップを読み込む</button><input type="file" id="importFile" accept=".json,.csv,application/json,text/csv" hidden><button type="button" class="button danger" id="removeAll">全症例を削除</button></div><p class="hint">JSONには手動追加の参考文献も含まれます。CSVはExcel等で分析できます。v0.1形式のCSVも読み込み可能です。インポートでは重複症例を可能な範囲で除外します。</p><div style="margin-top:17px" class="grid2"><label class="field">トレイニーIDで絞り込む <select id="historyTrainee"></select></label><label class="field">症例の検索 <input id="historySearch" placeholder="術式・日付・メモで検索"></label></div><p id="historyCount" class="hint"></p><div class="table-scroll"><table><thead><tr><th>手術日</th><th>トレイニー</th><th>術式</th><th>満足度</th><th>Zwisch</th><th>担当率</th><th>交替</th><th>記録操作</th></tr></thead><tbody id="historyBody"></tbody></table></div><div style="margin-top:12px" class="text-center"><button class="button outline" type="button" id="historyMore" hidden>さらに15件を表示</button></div></div>
+</section>
+<section id="mentor" class="page" role="tabpanel">
+  <div class="page-heading"><div><h2>メンター</h2><p class="lead">一度の結果だけで判断せず、少し長い時間軸で歩みを振り返ります。</p></div></div>
+  <div class="panel"><label class="field" style="max-width:360px">トレイニーID <select id="mentorTrainee"></select></label><p class="hint">以下のコメントは記録された数値に応じたメッセージです。術中の技術・患者安全・手術適応に関する指導は行いません。</p></div>
+  <div class="mentor-hero"><div class="mentor-symbol" aria-hidden="true">✦</div><h3>あなたの歩みを一緒に振り返る</h3><div class="quote" id="mentorMain">記録が増えると、ここにメッセージが表示されます。</div><div class="promptbox" id="mentorQuestion">今日の記録で、心に残ったことは何でしょうか。</div><p class="hint" style="margin-bottom:0">「AIメンター」構想の試作です。現在は入力記録に基づくルールベース生成であり、外部の生成AI API・医療判断機能は接続していません。</p></div>
+  <div class="panel"><h3>これまでのメンターコメント</h3><div id="mentorTimeline"></div></div>
+</section>
+<section id="references" class="page" role="tabpanel">
+  <div class="page-heading"><div><h2>参考文献ライブラリ</h2><p class="lead">開発に参照した文献を、今後のバージョンでもここに追加していきます。</p></div></div>
+  <div class="panel"><div class="demo-strip"><div><strong id="referenceCount">登録文献：0件</strong><p class="subtle" style="margin:3px 0 0">アプリ同梱の確認済み文献＋手動追加した文献</p></div><span class="pill green">最後のタブに集約</span></div><div id="referenceList" style="margin-top:16px"></div></div>
+  <div class="panel"><h3>参考文献を追記する</h3><p class="lead" style="margin-bottom:15px">新しい論文を追加するための入力欄です。手動登録した書誌情報の正確性は、ご自身で確認してください。</p><form id="referenceForm" class="ref-add-form"><div class="grid2"><label class="field full">論文タイトル <input id="refTitle" maxlength="300" required placeholder="論文タイトル"></label><label class="field">著者・年 <input id="refAuthor" maxlength="180" required placeholder="例：Smith J, et al. (2026)"></label><label class="field">雑誌・巻号 <input id="refJournal" maxlength="160" placeholder="例：J Surg Educ. 2026;... "></label><label class="field full">PubMed / DOI のURL（任意） <input id="refUrl" type="url" placeholder="https://pubmed.ncbi.nlm.nih.gov/..."></label><label class="field full">このアプリへの関連（任意） <textarea id="refNote" maxlength="600" placeholder="例：術中自律度の評価方法を検討する際の参考"></textarea></label></div><div class="actions" style="margin-top:15px"><button class="button primary" type="submit">参考文献を追加する</button></div></form></div>
+  <div class="note">Zwisch scaleおよびSURG-TLXに関連する文献を挙げていますが、アプリ自体の医学的妥当性・教育効果を検証したものではありません。満足度やメンターコメントはこのアプリ独自の設計です。</div>
+</section>
+</main>
+<footer class="footer"><span>RoboTrain Prototype v0.2 · 2026-10-18 · 教育研究向けデモ</span><span>端末保存のみ・匿名/仮名IDで試用 · 研究利用には倫理/情報セキュリティ審査が必要</span></footer>
+</div>
+<div id="detailOverlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="detailTitle" hidden><div class="modal"><div class="modalhead"><h2 id="detailTitle" style="font-size:19px;margin:0">症例の詳細</h2><button id="closeDetail" class="button secondary smallbtn" type="button">閉じる ×</button></div><div id="detailContent" style="margin-top:16px"></div></div></div>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<script>
+'use strict';
+(function(){
+  const VERSION='0.2', KEY='robotrain_demo_v02', OLD_KEY='robotrain_demo_v01';
+  const $=id=>document.getElementById(id);
+  const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const number=(x,def=null)=>x===''||x===null||x===undefined?def:(Number.isFinite(Number(x))?Number(x):def);
+  const int=(x,def=null)=>{let v=number(x,def);return v===null?null:Math.round(v)};
+  const asText=(v,len=1500)=>String(v??'').slice(0,len);
+  const validDate=d=>/^\d{4}-\d{2}-\d{2}$/.test(String(d||''));
+  const displayDate=d=>validDate(d)?d.replaceAll('-','/'):String(d||'—');
+  const localDate=()=>{const d=new Date();return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-')};
+  const id=()=>`rt_${Date.now().toString(36)}_${Math.random().toString(36).slice(2,11)}`;
+  const mean=(a,fn)=>a.length?a.reduce((acc,x)=>acc+fn(x),0)/a.length:null;
+  const fixed=(x,n=1)=>x===null||!Number.isFinite(x)?'—':x.toFixed(n);
+  const pct=n=>n===null?'—':Math.round(n)+'%';
+  const share=r=>r.totalConsoleMinutes>0?100*r.traineeConsoleMinutes/r.totalConsoleMinutes:null;
+  const rate=(a,fn)=>a.length?100*a.filter(fn).length/a.length:null;
+  const surgeryLabel=r=>r.procedure||'術式未入力';
+  const completionLabel=c=>c==='complete'?'予定範囲を完遂':c==='partial'?'部分執刀':c==='not'?'予定範囲未完遂':'未入力';
+  const zwischName=['','Show & Tell','Active Help','Passive Help','Supervision Only'];
+  const data={records:[],customReferences:[]};
+  const state={page:'entry',chart:'zwisch',demo:false,editingId:null,historyLimit:15,selectedTrainee:'',historyTrainee:'',mentorTrainee:'',selectedProcedure:'',selectedComplexity:'',statusTimeout:null};
+  const BASE_REFS=[
+    {id:'base-01',added:'v0.2',authors:'DaRosa DA, et al. (2013)',journal:'J Surg Educ. 70(1):24–30',title:'A theory-based model for teaching and assessing residents in the operating room.',doi:'10.1016/j.jsurg.2012.07.007',pmid:'23337666',note:'術中の自律度に基づく教育・評価モデルの基礎。'},
+    {id:'base-02',added:'v0.1',authors:'George BC, et al. (2014)',journal:'J Surg Educ. 71(6):e90–e96',title:'Reliability, validity, and feasibility of the Zwisch scale for the assessment of intraoperative performance.',doi:'10.1016/j.jsurg.2014.06.018',pmid:'25192794',note:'Zwisch scaleの信頼性・妥当性・実装可能性を検討した研究。'},
+    {id:'base-03',added:'v0.1',authors:'Wilson MR, et al. (2011)',journal:'World J Surg. 35(9):1961–1969',title:'Development and validation of a surgical workload measure: the surgery task load index (SURG-TLX).',doi:'10.1007/s00268-011-1141-4',pmid:'21597890',note:'術者の作業負荷を評価するSURG-TLXの原著。今回の試作では入力負担を考慮して不採用。'},
+    {id:'base-04',added:'v0.2',authors:'Bohnen JD, et al. (2016)',journal:'J Surg Educ. 73(6):e118–e130',title:'The Feasibility of Real-Time Intraoperative Performance Assessment With SIMPL (System for Improving and Measuring Procedural Learning): Early Experience From a Multi-institutional Trial.',doi:'10.1016/j.jsurg.2016.08.010',pmid:'27886971',note:'症例ごとのモバイル評価を蓄積する教育記録の運用例。'},
+    {id:'base-05',added:'v0.2',authors:'Chen JX, et al. (2019)',journal:'Laryngoscope Investig Otolaryngol. 4(6):578–586',title:'Tracking operative autonomy and performance in otolaryngology training using smartphone technology: A single institution pilot study.',doi:'10.1002/lio2.323',pmid:'31890874',note:'トレイニー・指導医による自律度評価を症例単位で記録した研究。'},
+    {id:'base-06',added:'v0.2',authors:'Cook MR, et al. (2015)',journal:'J Am Coll Surg. 220(5):959–967',title:'A flexible postoperative debriefing process can effectively provide formative resident feedback.',doi:'10.1016/j.jamcollsurg.2014.12.048',pmid:'25907872',note:'術後の短い振り返りと形成的フィードバックを支える研究。メンター機能の考え方の参考。'}
+  ];
+  // サンプルはメモリ内だけで生成し、実記録には絶対に混ぜない。
+  const DEMO=Array.from({length:14},(_,i)=>{
+    const day=new Date(2026,6,3+i*6);
+    const date=[day.getFullYear(),String(day.getMonth()+1).padStart(2,'0'),String(day.getDate()).padStart(2,'0')].join('-');
+    const sequence=[1,2,2,2,3,2,3,3,3,3,4,3,4,4];
+    const t=[55,66,70,72,82,75,88,92,90,103,112,96,124,132][i];
+    return {id:`demo_${i}`,demo:true,date,traineeId:'DEMO-T001',facultyId:'DEMO-F001',procedure:i%4===0?'ロボット支援低位前方切除':'ロボット支援S状結腸切除',opMinutes:210, totalConsoleMinutes:150,traineeConsoleMinutes:t,complexity:i%5===0?3:2,satisfaction:[5,6,7,6,7,6,7,8,7,8,8,7,9,9][i],switched:i<7?'yes':'no',returned:i<7?(i%2===0?'yes':'no'):'na',completion:i>=6?'complete':'partial',zwisch:sequence[i],facultyZwisch:null,achievement:'本番入力とは別の架空の記録です。',nextStep:'',createdAt:`${date}T12:00:00.000Z`,mentorMessage:''};
+  });
+  function currentRecords(){return state.demo?DEMO:data.records}
+  function normalize(r){
+    if(!r||typeof r!=='object')return null;
+    let date=r.date??r.surgeryDate;
+    let traineeId=asText(r.traineeId??r.trainee??'',40).trim();
+    let opMinutes=int(r.opMinutes??r.opTime),totalConsoleMinutes=int(r.totalConsoleMinutes??r.totalConsole),traineeConsoleMinutes=int(r.traineeConsoleMinutes??r.traineeConsole);
+    let zwisch=int(r.zwisch),sat=int(r.satisfaction),comp=int(r.complexity,2);
+    if(!validDate(date)||!traineeId||!asText(r.procedure,180)||!Number.isInteger(opMinutes)||!Number.isInteger(totalConsoleMinutes)||!Number.isInteger(traineeConsoleMinutes)||opMinutes<1||totalConsoleMinutes<1||traineeConsoleMinutes<0||totalConsoleMinutes>opMinutes||traineeConsoleMinutes>totalConsoleMinutes||opMinutes>2000||![1,2,3,4].includes(zwisch)||sat===null||sat<0||sat>10)return null;
+    if(![1,2,3].includes(comp))comp=2;
+    let facultyZ=int(r.facultyZwisch);if(![1,2,3,4].includes(facultyZ))facultyZ=null;
+    const sw=r.switched==='yes'?'yes':'no';
+    const returned=sw==='yes'&&r.returned==='no'?'no':sw==='yes'?'yes':'na';
+    const c=['complete','partial','not'].includes(r.completion)?r.completion:'partial';
+    return {id:asText(r.id||id(),100),demo:false,date,traineeId,facultyId:asText(r.facultyId??r.trainer??'',40),procedure:asText(r.procedure,180),opMinutes,totalConsoleMinutes,traineeConsoleMinutes,complexity:comp,satisfaction:sat,switched:sw,returned,completion:c,zwisch,facultyZwisch:facultyZ,achievement:asText(r.achievement??'',1500),nextStep:asText(r.nextStep??r.reflection??'',1500),createdAt:asText(r.createdAt||new Date().toISOString(),50),mentorMessage:asText(r.mentorMessage??'',1600)};
+  }
+  function savedData(){return {app:'RoboTrain',schemaVersion:2,records:data.records,customReferences:data.customReferences}}
+  function persist(){try{localStorage.setItem(KEY,JSON.stringify(savedData()));$('storageWarning').classList.remove('show');return true}catch(e){$('storageWarning').classList.add('show');return false}}
+  function load(){let raw=null, old=null;
+    try{raw=localStorage.getItem(KEY);old=localStorage.getItem(OLD_KEY)}catch(e){$('storageWarning').classList.add('show')}
+    try{
+      if(raw){const obj=JSON.parse(raw);(Array.isArray(obj)?obj:obj.records||[]).forEach(x=>{let r=normalize(x);if(r)data.records.push(r)});if(obj&&!Array.isArray(obj)&&Array.isArray(obj.customReferences))data.customReferences=obj.customReferences.filter(x=>x&&x.title&&x.id).map(x=>({id:asText(x.id,100),title:asText(x.title,300),authors:asText(x.authors,180),journal:asText(x.journal,160),url:asText(x.url,900),note:asText(x.note,600),added:asText(x.added,25)}))}
+      else if(old){const arr=JSON.parse(old);if(Array.isArray(arr)){arr.forEach(x=>{let r=normalize(x);if(r)data.records.push(r)});if(data.records.length){persist();$('storageStatus').textContent=`v0.1の${data.records.length}件を引き継ぎました（同じ保存領域の場合）。ブラウザ内保存。`}}}
+    }catch(e){console.warn('保存データの読み込みに失敗',e);$('storageWarning').classList.add('show')}
+  }
+  function toast(msg){const el=$('toast');el.textContent=msg;el.hidden=false;clearTimeout(state.statusTimeout);state.statusTimeout=setTimeout(()=>el.hidden=true,4000)}
+  function display(page){state.page=page;document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===page));document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected',String(x.dataset.page===page)));if(page==='dashboard')renderDashboard();if(page==='history')renderHistory();if(page==='mentor')renderMentor();if(page==='references')renderReferences();window.scrollTo({top:0,behavior:'instant'})}
+  document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>display(b.dataset.page)));
+  function chrono(a,b){return a.date.localeCompare(b.date)||String(a.createdAt||'').localeCompare(String(b.createdAt||''))||a.id.localeCompare(b.id)}
+  function sorted(rs){return rs.slice().sort(chrono)}
+  function fillSelect(select,choices,placeholder,preferred){const list=choices.slice();select.innerHTML=`<option value="">${esc(placeholder)}</option>`+list.map(v=>`<option value="${esc(v)}">${esc(v)}</option>`).join('');if(preferred&&list.includes(preferred))select.value=preferred;else if((select.id==='dashboardTrainee'||select.id==='mentorTrainee')&&list.length)select.value=list[0]}
+  function refreshChoices(preferred){const rs=currentRecords();const ids=[...new Set(rs.map(r=>r.traineeId))].sort();const ds=$('dashboardTrainee'),ms=$('mentorTrainee'),hs=$('historyTrainee');const d=preferred||ds.value||state.selectedTrainee;const m=preferred||ms.value||state.mentorTrainee;const h=hs.value||state.historyTrainee;
+    fillSelect(ds,ids,'トレイニーを選択',d);fillSelect(ms,ids,'トレイニーを選択',m);fillSelect(hs,ids,'すべてのトレイニー',null);if(h&&ids.includes(h))hs.value=h;
+    const prev=$('dashboardProcedure').value||state.selectedProcedure;
+    const procs=[...new Set(rs.filter(r=>!ds.value||r.traineeId===ds.value).map(r=>r.procedure))].sort();fillSelect($('dashboardProcedure'),procs,'すべての術式',null);if(prev&&procs.includes(prev))$('dashboardProcedure').value=prev;
+  }
+  function refreshAll(preferred){refreshChoices(preferred);renderHistory();renderDashboard();renderMentor();renderReferences()}
+  function getDashboardCases(){const t=$('dashboardTrainee').value,pr=$('dashboardProcedure').value,c=$('dashboardComplexity').value;if(!t)return [];return sorted(currentRecords().filter(r=>r.traineeId===t&&(!pr||r.procedure===pr)&&(!c||String(r.complexity)===c)))}
+  function countTrainee(trainee){return data.records.filter(x=>x.traineeId===trainee).length}
+  function mentorForCase(record,history){const byProc=sorted(history.filter(x=>x.traineeId===record.traineeId&&x.procedure===record.procedure&&x.id!==record.id&&chrono(x,record)<0));
+    const n=sorted(history.filter(x=>x.traineeId===record.traineeId&&x.id!==record.id).concat(record)).findIndex(x=>x.id===record.id)+1;
+    const intro=n===1?'最初の一例を記録できましたね。これからの歩みを見つめるための、大切な基準点です。':n%10===0?`${n}例目の記録です。ここまで続けてきた歩みそのものが、振り返る価値のある財産です。`:'今日の一例も、あなたの経験として記録されました。';
+    let middle='手術ごとに条件は異なります。ひとつの数字だけで、今日の自分を決めつける必要はありません。';
+    if(record.satisfaction<=4)middle='満足できない日もありますね。そう感じたことまで記録に残せたのは、次の振り返りにつながります。';
+    else if(record.switched==='yes')middle='途中の交替や支援も、手術を学ぶ過程の一部です。今日はどんな瞬間が印象に残りましたか。';
+    else if(byProc.length>=2){
+      const recent=byProc.slice(-3);const previousHigh=rate(recent,x=>x.zwisch>=3);
+      if(record.zwisch>=3&&previousHigh<50)middle='同じ術式の最近の記録と比べ、自律度の高い段階をつけられた一例ですね。症例による違いも含めて、この経験を大切にしていきましょう。';
+      else if(record.zwisch<Math.min(...recent.map(x=>x.zwisch)))middle='同じ術式でも、必要な支援は毎回変わります。今日の記録も長い経過の中の一つとして残しておきましょう。';
+      else middle='同じ術式の記録が少しずつたまってきました。一例ごとの変化だけでなく、続けてきた時間にも目を向けてみてください。';
+    }else if(record.satisfaction>=8)middle='今日の満足感は、大切にしたい感覚ですね。うまくいったと感じた理由を一言残しておくと、次の振り返りに役立ちます。';
+    const outro=record.achievement.trim()?'今日「できたこと」として書いた点を、次回の自分にも引き継いでいきましょう。':'次の一例に向けて、今日の経験から持ち帰りたいことを一つ選んでみませんか。';
+    return [intro,middle,outro].join('\n');
+  }
+  function summaryMentor(rs){if(!rs.length)return 'まだ記録はありません。最初の一例から、一緒に振り返っていきましょう。';
+    const s=sorted(rs);const last=s[s.length-1],n=s.length;const total=state.demo?n:currentRecords().filter(x=>x.traineeId===last.traineeId).length;
+    if(n<4)return `${total}例の記録が残っています。一例ずつ振り返る習慣が、これからの変化に気づく土台になります。今は数字を急いで比べず、自分の感じたことも大切にしていきましょう。`;
+    if(n<10)return `${n}例の記録が並びました。手術ごとに異なる状況の中で、何を学んだかは数字だけでは表せません。ときどき最初の記録を開いて、今の自分が感じることを確かめてみませんか。`;
+    const first=s.slice(0,5),recent=s.slice(-5),a=rate(first,r=>r.zwisch>=3),b=rate(recent,r=>r.zwisch>=3);
+    if(b>a)return `ここまで${n}例を記録しました。直近5例では、最初の5例に比べてZwisch 3–4の割合が高くなっています。症例の条件は異なりますが、こうした変化を自分の言葉でも振り返っていきましょう。`;
+    if(b<a)return `ここまで${n}例、記録を続けてきました。最近は指導医の支援が必要な症例が多かったようです。難易度や手術内容も振り返りながら、焦らず積み重ねていきましょう。`;
+    return `${n}例の記録が積み重なりました。自律度の割合だけでは表せない変化も、きっと記録の中にあります。次の一例も、比べることより学びを見つけることを大切にしてみましょう。`;
+  }
+  function questionFor(rs){if(!rs.length)return '最初の一例で、どんなことを大切にしたいですか？';let last=sorted(rs).at(-1);if(last.satisfaction<=4)return '今日の経験の中で、次回につなげたい小さな発見は何ですか？';if(last.switched==='yes')return '支援を受けた場面から、どんなことを持ち帰りたいですか？';if(last.satisfaction>=8)return '今日、うまくいったと感じたのはどんな瞬間でしたか？';return '次の一例で、どんな自分の変化に気づけたらうれしいですか？'}
+  function syncLive(){const a=number($('traineeConsoleMinutes').value),b=number($('totalConsoleMinutes').value);$('consolePreview').textContent=a===null||b===null||b<=0?'コンソール担当率：時間を入力すると自動計算します。':a>b?'コンソール担当時間が総コンソール時間を上回っています。':`コンソール担当率：${(100*a/b).toFixed(1)}%（${a} / ${b} 分）`;$('returnedWrap').hidden=$('switched').value!=='yes';$('satisfactionValue').textContent=$('satisfaction').value}
+  ['totalConsoleMinutes','traineeConsoleMinutes','switched','satisfaction'].forEach(k=>$(k).addEventListener('input',syncLive));
+  function resetForm(){state.editingId=null;$('caseForm').reset();$('surgeryDate').value=localDate();$('satisfaction').value=7;$('editNotice').hidden=true;$('saveCase').textContent='症例を保存してメンターの言葉を受け取る';$('saveSuccess').hidden=true;$('formError').textContent='';syncLive()}
+  function getFormRecord(){const v=k=>$(k).value;return normalize({id:state.editingId||id(),date:v('surgeryDate'),traineeId:v('traineeId').trim(),facultyId:v('facultyId').trim(),procedure:v('procedure'),opMinutes:v('opMinutes'),totalConsoleMinutes:v('totalConsoleMinutes'),traineeConsoleMinutes:v('traineeConsoleMinutes'),complexity:v('complexity'),satisfaction:v('satisfaction'),switched:v('switched'),returned:v('switched')==='yes'?v('returned'):'na',completion:v('completion'),zwisch:document.querySelector('input[name="zwisch"]:checked')?.value||'',facultyZwisch:v('facultyZwisch'),achievement:v('achievement'),nextStep:v('nextStep'),createdAt:new Date().toISOString()})}
+  $('caseForm').addEventListener('submit',e=>{
+    e.preventDefault();$('formError').textContent='';const r=getFormRecord();if(!r){$('formError').textContent='入力内容・時間の大小関係・Zwisch選択を確認してください。';return}
+    const existing=state.editingId?data.records.find(x=>x.id===state.editingId):null;
+    if(existing)r.createdAt=existing.createdAt;
+    const history=data.records.filter(x=>x.id!==r.id&&x.traineeId===r.traineeId);let snapshot=history.concat(r);
+    r.mentorMessage=mentorForCase(r,snapshot);
+    if(existing)data.records.splice(data.records.findIndex(x=>x.id===r.id),1,r);else data.records.push(r);
+    const saved=persist();state.demo=false;state.editingId=null;$('editNotice').hidden=true;$('saveCase').textContent='症例を保存してメンターの言葉を受け取る';$('caseForm').reset();$('surgeryDate').value=localDate();$('traineeId').value=r.traineeId;$('satisfaction').value=7;syncLive();
+    $('saveSuccess').hidden=false;$('savedMentorMessage').textContent=r.mentorMessage;$('saveCount').textContent=`${r.traineeId} の${countTrainee(r.traineeId)}例目の登録です。${saved?'このブラウザに保存しました。':'端末保存に失敗しました。必ず内容を控えてください。'}`;
+    refreshAll(r.traineeId);$('saveSuccess').scrollIntoView({behavior:'smooth',block:'center'});
+  });
+  $('resetCase').addEventListener('click',resetForm);$('cancelEdit').addEventListener('click',resetForm);
+  $('goDashboard').addEventListener('click',()=>display('dashboard'));$('goMentor').addEventListener('click',()=>display('mentor'));
+  function editCase(caseId){const r=data.records.find(x=>x.id===caseId);if(!r)return;resetForm();state.editingId=r.id;
+    const map={surgeryDate:r.date,traineeId:r.traineeId,facultyId:r.facultyId,procedure:r.procedure,opMinutes:r.opMinutes,totalConsoleMinutes:r.totalConsoleMinutes,traineeConsoleMinutes:r.traineeConsoleMinutes,complexity:r.complexity,satisfaction:r.satisfaction,switched:r.switched,returned:r.returned==='na'?'yes':r.returned,completion:r.completion,facultyZwisch:r.facultyZwisch??'',achievement:r.achievement,nextStep:r.nextStep};Object.entries(map).forEach(([k,v])=>{$(k).value=v});const radio=$(`zwisch${r.zwisch}`);if(radio)radio.checked=true;syncLive();$('editNotice').hidden=false;$('saveCase').textContent='変更を保存する';closeModal();display('entry');window.scrollTo({top:190,behavior:'smooth'})}
+  function removeCase(caseId){let r=data.records.find(x=>x.id===caseId);if(!r)return;if(!confirm(`${displayDate(r.date)} / ${r.traineeId} の症例を削除しますか？\n削除は取り消せません。`))return;data.records=data.records.filter(x=>x.id!==caseId);persist();closeModal();refreshAll();toast('症例を削除しました')}
+  function renderDashboard(){const rs=getDashboardCases();$('dashboardScope').textContent=state.demo?'現在は架空データを一時表示しています。実際の記録への書き込み・混在はありません。':!rs.length?'この条件では記録がありません。':`対象：${$('dashboardTrainee').value} / ${$('dashboardProcedure').value||'全術式'} / ${$('dashboardComplexity').selectedOptions[0]?.textContent||'全難易度'} · ${rs.length}例`;
+    $('metricCases').textContent=rs.length;$('metricAutonomy').textContent=pct(rate(rs,r=>r.zwisch>=3));$('metricSatisfaction').textContent=fixed(mean(rs,r=>r.satisfaction));$('metricShare').textContent=pct(mean(rs,r=>share(r)||0));
+    const all=[['完遂率',rate(rs,r=>r.completion==='complete')],['コンソール交替率',rate(rs,r=>r.switched==='yes')],['交替後の再執刀率（交替例のみ）',rate(rs.filter(r=>r.switched==='yes'),r=>r.returned==='yes')],['指導医Zwischの入力率',rate(rs,r=>r.facultyZwisch!==null)]];
+    $('moreMetrics').innerHTML=all.map(([label,val])=>`<div class="mini-row" style="padding:5px 0"><span class="subtle">${esc(label)}</span><strong>${pct(val)}</strong></div>`).join('');
+    if(rs.length>=10){const a=rs.slice(0,5),b=rs.slice(-5);const items=[{label:'Zwisch 3–4の割合',start:pct(rate(a,r=>r.zwisch>=3)),end:pct(rate(b,r=>r.zwisch>=3))},{label:'平均満足度',start:fixed(mean(a,r=>r.satisfaction)),end:fixed(mean(b,r=>r.satisfaction))},{label:'平均担当率',start:pct(mean(a,r=>share(r)||0)),end:pct(mean(b,r=>share(r)||0))},{label:'完遂率',start:pct(rate(a,r=>r.completion==='complete')),end:pct(rate(b,r=>r.completion==='complete'))}];$('compareContent').innerHTML=items.map(x=>`<div class="progress-compare"><div class="headline">${x.label}</div><div class="bigline">${x.start} <span style="color:#90a1a7;font-size:18px">→</span> ${x.end}</div><p>初期5例 → 直近5例</p></div>`).join('')}
+    else $('compareContent').innerHTML=`<div class="empty full">比較表示まであと <strong>${Math.max(0,10-rs.length)}例</strong>。<br>10例たまると、最初の5例と最近の5例を並べて確認できます。</div>`;
+    $('dashboardMentor').textContent=summaryMentor(rs);renderChart(rs)
+  }
+  function renderChart(rs){document.querySelectorAll('#chartToggle .chip').forEach(b=>b.classList.toggle('active',b.dataset.metric===state.chart));const svg=$('trendChart');const specs={zwisch:{min:1,max:4,step:1,get:r=>r.zwisch,unit:''},satisfaction:{min:0,max:10,step:2,get:r=>r.satisfaction,unit:''},share:{min:0,max:100,step:25,get:r=>share(r),unit:'%'},minutes:{min:0,max:null,step:null,get:r=>r.traineeConsoleMinutes,unit:'分'}};
+    const metric=specs[state.chart];const max=metric.max??(Math.max(30,...rs.map(r=>metric.get(r)))+20);const min=metric.min;const left=65,right=945,top=24,bottom=255;
+    const y=v=>bottom-(v-min)/(max-min)*(bottom-top);const x=i=>rs.length===1?(left+right)/2:left+(right-left)*i/(rs.length-1);
+    let html='';const ticks=metric.step?Math.round((max-min)/metric.step):5;
+    for(let i=0;i<=ticks;i++){const v=min+(max-min)*i/ticks,pos=y(v);html+=`<line class="axis" x1="${left}" y1="${pos}" x2="${right}" y2="${pos}"/><text x="${left-12}" y="${pos+5}" text-anchor="end">${Math.round(v)}${metric.unit}</text>`}
+    if(!rs.length){html+=`<text class="center-message" x="490" y="156">症例を保存すると、この場所に推移が表示されます</text>`}
+    else{
+      let points=rs.map((r,i)=>({x:x(i),y:y(metric.get(r)),r}));
+      if(points.length>1)html+=`<polyline class="trendline" points="${points.map(p=>`${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ')}"/>`;
+      html+=points.map((p,i)=>`<circle class="dot" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${rs.length>65?3.5:6}"><title>${i+1}例目 | ${esc(p.r.date)} | ${esc(p.r.procedure)} | ${state.chart==='zwisch'?`Zwisch ${p.r.zwisch}`:state.chart==='satisfaction'?`満足度 ${p.r.satisfaction}`:state.chart==='share'?`担当率 ${fixed(share(p.r))}%`:`担当時間 ${p.r.traineeConsoleMinutes}分`}</title></circle>`).join('');
+      const indexes=new Set([0,rs.length-1]);const skip=Math.max(1,Math.ceil(rs.length/8));for(let i=0;i<rs.length;i+=skip)indexes.add(i);[...indexes].sort((a,b)=>a-b).forEach(i=>html+=`<text class="xtext" x="${x(i)}" y="280">${i+1}</text>`);
+    }
+    html+=`<text x="${(left+right)/2}" y="304" text-anchor="middle" style="font-size:12px">症例順（該当条件での累積件数）</text>`;svg.innerHTML=html;
+  }
+  document.querySelectorAll('#chartToggle .chip').forEach(b=>b.addEventListener('click',()=>{state.chart=b.dataset.metric;renderDashboard()}));
+  $('dashboardTrainee').addEventListener('change',()=>{state.selectedTrainee=$('dashboardTrainee').value;state.selectedProcedure='';$('dashboardProcedure').value='';refreshChoices();renderDashboard()});$('dashboardProcedure').addEventListener('change',()=>{state.selectedProcedure=$('dashboardProcedure').value;renderDashboard()});$('dashboardComplexity').addEventListener('change',renderDashboard);
+  $('demoToggle').addEventListener('click',()=>{state.demo=!state.demo;state.selectedTrainee='';state.selectedProcedure='';$('dashboardProcedure').value='';$('dashboardComplexity').value='';$('demoToggle').textContent=state.demo?'実データ表示に戻す':'サンプルで画面を試す';refreshAll();display('dashboard');toast(state.demo?'架空の14症例を一時的に表示しています':'自分の記録の表示に戻しました')});
+  $('historySearch').addEventListener('input',()=>{state.historyLimit=15;renderHistory()});$('historyTrainee').addEventListener('change',()=>{state.historyTrainee=$('historyTrainee').value;state.historyLimit=15;renderHistory()});$('historyMore').addEventListener('click',()=>{state.historyLimit+=15;renderHistory()});
+  function renderHistory(){const q=$('historySearch').value.toLowerCase().trim(),t=$('historyTrainee').value;const rs=data.records.filter(r=>(!t||r.traineeId===t)&&(!q||[r.date,r.traineeId,r.procedure,r.facultyId,r.achievement,r.nextStep].some(x=>String(x||'').toLowerCase().includes(q)))).sort((a,b)=>-chrono(a,b));$('historyCount').textContent=`${rs.length}件を表示対象 / 全${data.records.length}件`;
+    $('historyBody').innerHTML=rs.slice(0,state.historyLimit).map(r=>`<tr><td>${esc(displayDate(r.date))}</td><td>${esc(r.traineeId)}</td><td>${esc(r.procedure)}</td><td>${r.satisfaction}/10</td><td><span class="tag">${r.zwisch} · ${esc(zwischName[r.zwisch])}</span></td><td>${pct(share(r))}</td><td>${r.switched==='yes'?'あり':'なし'}</td><td><div class="actions"><button class="button smallbtn secondary" data-act="view" data-id="${esc(r.id)}">詳細</button><button class="button smallbtn outline" data-act="edit" data-id="${esc(r.id)}">編集</button><button class="button smallbtn danger" data-act="delete" data-id="${esc(r.id)}">削除</button></div></td></tr>`).join('')||'<tr><td colspan="8" class="text-center muted" style="padding:25px">記録がありません</td></tr>';
+    $('historyMore').hidden=rs.length<=state.historyLimit;
+  }
+  $('historyBody').addEventListener('click',e=>{const b=e.target.closest('button[data-act]');if(!b)return;const act=b.dataset.act;const k=b.dataset.id;if(act==='view')showDetail(k);if(act==='edit')editCase(k);if(act==='delete')removeCase(k)});
+  function showDetail(k){const r=data.records.find(x=>x.id===k);if(!r)return;const cells=[['手術日',displayDate(r.date)],['トレイニーID',r.traineeId],['術式',r.procedure],['指導医ID',r.facultyId||'未入力'],['総手術時間',r.opMinutes+'分'],['総コンソール時間',r.totalConsoleMinutes+'分'],['自身のコンソール時間',r.traineeConsoleMinutes+'分'],['担当率',pct(share(r))],['満足度',r.satisfaction+'/10'],['難易度',['','易しい','標準','難しい'][r.complexity]],['Zwisch自己評価',r.zwisch+' '+zwischName[r.zwisch]],['指導医Zwisch評価',r.facultyZwisch?`${r.facultyZwisch} ${zwischName[r.facultyZwisch]}`:'未評価'],['交替',r.switched==='yes'?'あり':'なし'],['交替後の再執刀',r.returned==='na'?'該当なし':r.returned==='yes'?'あり':'なし'],['完遂',completionLabel(r.completion)]];
+    const msg=r.mentorMessage||mentorForCase(r,data.records);
+    $('detailContent').innerHTML=`<div class="detailgrid">${cells.map(([l,v])=>`<div class="detailcell"><small>${esc(l)}</small><strong>${esc(v)}</strong></div>`).join('')}</div><div style="margin-top:17px"><h4>今日できたこと</h4><p style="white-space:pre-wrap;font-size:13px">${esc(r.achievement||'未入力')}</p><h4>次回大切にしたいこと</h4><p style="white-space:pre-wrap;font-size:13px">${esc(r.nextStep||'未入力')}</p></div><div class="trait"><h4>保存されたメンターコメント</h4><p style="white-space:pre-wrap;font-size:13px;margin:0">${esc(msg)}</p></div><div class="actions" style="margin-top:17px"><button class="button primary" type="button" id="modalEdit">この症例を編集</button></div>`;
+    $('detailOverlay').hidden=false;$('modalEdit').addEventListener('click',()=>editCase(k));$('closeDetail').focus();
+  }
+  function closeModal(){$('detailOverlay').hidden=true}
+  $('closeDetail').addEventListener('click',closeModal);$('detailOverlay').addEventListener('click',e=>{if(e.target===$('detailOverlay'))closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('detailOverlay').hidden)closeModal()});
+  function renderMentor(){const t=$('mentorTrainee').value;const rs=sorted(currentRecords().filter(r=>t&&r.traineeId===t));$('mentorMain').textContent=summaryMentor(rs);$('mentorQuestion').textContent=questionFor(rs);
+    $('mentorTimeline').innerHTML=rs.length?rs.slice().reverse().slice(0,20).map((r,index)=>`<div class="mini-row"><div style="flex:1"><div class="mini-date">${esc(displayDate(r.date))} · ${esc(r.procedure)} · Zwisch ${r.zwisch} · 満足度 ${r.satisfaction}/10${state.demo?' · 架空データ':''}</div><div class="mini-msg" style="white-space:pre-wrap">${esc(r.mentorMessage||mentorForCase(r,rs))}</div></div></div>`).join(''):'<div class="empty">最初の症例を登録すると、振り返りの言葉がここにたまっていきます。</div>';
+  }
+  $('mentorTrainee').addEventListener('change',()=>{state.mentorTrainee=$('mentorTrainee').value;renderMentor()});
+  function referenceLink(r){if(r.pmid)return `https://pubmed.ncbi.nlm.nih.gov/${encodeURIComponent(r.pmid)}/`;if(r.url&&/^https:\/\//i.test(r.url))return r.url;return r.doi?`https://doi.org/${encodeURIComponent(r.doi)}`:null}
+  function renderReferences(){const refs=BASE_REFS.concat(data.customReferences).sort((a,b)=>String(a.added||'').localeCompare(String(b.added||''),'ja'));$('referenceCount').textContent=`登録文献：${refs.length}件（同梱${BASE_REFS.length} / 手動追加${data.customReferences.length}）`;
+    $('referenceList').innerHTML=refs.map(r=>{const link=referenceLink(r);return `<article class="ref-item"><div class="ref-badges"><span class="ref-badge ${r.added==='v0.2'?'new':''}">${esc(r.added||'追記')}</span><span class="ref-badge">${r.id.startsWith('base-')?'文献情報を確認済み':'手動追加（未検証）'}</span></div><div class="ref-title">${esc(r.title)}</div><div class="ref-meta">${esc(r.authors||'')} ${r.journal?' · '+esc(r.journal):''}</div>${r.note?`<p class="ref-note">${esc(r.note)}</p>`:''}<div class="actions" style="margin-top:9px">${r.doi?`<span class="ref-meta">DOI: ${esc(r.doi)}</span>`:''}${r.pmid?`<span class="ref-meta">PMID: ${esc(r.pmid)}</span>`:''}${link?`<a class="ref-link" href="${esc(link)}" target="_blank" rel="noopener noreferrer">原典を開く ↗</a>`:''}${r.id.startsWith('user-')?`<button type="button" class="button smallbtn danger" data-ref-del="${esc(r.id)}">削除</button>`:''}</div></article>`}).join('');
+  }
+  $('referenceForm').addEventListener('submit',e=>{e.preventDefault();const url=$('refUrl').value.trim();if(url&&!/^https:\/\//i.test(url)){toast('URLはhttps://で始まるアドレスを入力してください');return}data.customReferences.push({id:'user-'+id(),added:'v0.2（手動）',title:$('refTitle').value.trim(),authors:$('refAuthor').value.trim(),journal:$('refJournal').value.trim(),url,note:$('refNote').value.trim()});persist();$('referenceForm').reset();renderReferences();toast('参考文献を追記しました')});
+  $('referenceList').addEventListener('click',e=>{const b=e.target.closest('button[data-ref-del]');if(!b)return;if(!confirm('この参考文献を削除しますか？'))return;data.customReferences=data.customReferences.filter(r=>r.id!==b.dataset.refDel);persist();renderReferences();toast('参考文献を削除しました')});
+  const csvCols=['id','date','traineeId','facultyId','procedure','opMinutes','totalConsoleMinutes','traineeConsoleMinutes','complexity','satisfaction','switched','returned','completion','zwisch','facultyZwisch','achievement','nextStep','mentorMessage','createdAt'];
+  function download(blob,filename){const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+  function csvSafe(x){let s=String(x??'');if(/^[\s]*[=+@\-\t\r]/.test(s))s="'"+s;return '"'+s.replaceAll('"','""')+'"'}
+  $('downloadCsv').addEventListener('click',()=>{const csv='\ufeff'+[csvCols,...data.records.map(r=>csvCols.map(k=>r[k]??''))].map(row=>row.map(csvSafe).join(',')).join('\r\n');download(new Blob([csv],{type:'text/csv;charset=utf-8'}),`RoboTrain_cases_${localDate()}.csv`);toast('CSVを出力しました')});
+  $('downloadJson').addEventListener('click',()=>{const payload={...savedData(),exportedAt:new Date().toISOString()};download(new Blob([JSON.stringify(payload,null,2)],{type:'application/json;charset=utf-8'}),`RoboTrain_backup_${localDate()}.json`);toast('JSONバックアップを書き出しました')});
+  $('pickImport').addEventListener('click',()=>$('importFile').click());
+  function parseCSV(txt){const rows=[];let row=[],cur='',inQuote=false;txt=txt.replace(/^\ufeff/,'');for(let i=0;i<txt.length;i++){const c=txt[i];if(c==='"'){if(inQuote&&txt[i+1]==='"'){cur+='"';i++}else inQuote=!inQuote}else if(c===','&&!inQuote){row.push(cur);cur=''}else if((c==='\n'||c==='\r')&&!inQuote){if(c==='\r'&&txt[i+1]==='\n')i++;row.push(cur);if(row.some(x=>x!==''))rows.push(row);row=[];cur=''}else cur+=c}if(inQuote)throw Error('CSVの引用符が閉じられていません');row.push(cur);if(row.some(x=>x!==''))rows.push(row);if(!rows.length)return[];const header=rows.shift().map(x=>x.trim());if(!header.includes('date')||!header.includes('procedure'))throw Error('RoboTrain形式のCSVヘッダーではありません');return rows.map(row=>Object.fromEntries(header.map((h,i)=>[h,row[i]??''])))}
+  function fingerprint(r){return [r.date,r.traineeId,r.procedure,r.opMinutes,r.totalConsoleMinutes,r.traineeConsoleMinutes,r.createdAt].join('|')}
+  $('importFile').addEventListener('change',async e=>{const file=e.target.files?.[0];if(!file)return;
+    try{if(file.size>15*1024*1024)throw Error('15MBを超えるファイルは読み込めません');const str=await file.text();let incoming=[],custom=[];
+      if(file.name.toLowerCase().endsWith('.csv'))incoming=parseCSV(str);
+      else {const obj=JSON.parse(str);if(Array.isArray(obj))incoming=obj;else if(obj&&Array.isArray(obj.records)){incoming=obj.records;custom=Array.isArray(obj.customReferences)?obj.customReferences:[]}else throw Error('対応するバックアップ形式ではありません')}
+      const list=incoming.map(normalize).filter(Boolean);if(!list.length&&incoming.length)throw Error('有効な症例データを読み込めませんでした');
+      if(!confirm(`バックアップから有効な症例${list.length}件、手動参考文献${custom.length}件を読み込みますか？\n既存データを残し、重複を除いて追加します。`))return;
+      const existingIds=new Set(data.records.map(x=>x.id)),existingKeys=new Set(data.records.map(fingerprint));let inserted=0;
+      for(const r of list){if(existingIds.has(r.id)||existingKeys.has(fingerprint(r)))continue;data.records.push(r);existingIds.add(r.id);existingKeys.add(fingerprint(r));inserted++}
+      let refInserted=0;const refIds=new Set(data.customReferences.map(x=>x.id));const refSign=new Set(data.customReferences.map(x=>(x.title||'').trim().toLowerCase()));
+      for(const r of custom){if(!r||!r.title)continue;const title=asText(r.title,300),sign=title.trim().toLowerCase();if(refSign.has(sign))continue;let newRef={id:refIds.has(r.id)?'user-'+id():asText(r.id||'user-'+id(),100),added:asText(r.added||'v0.2（手動）',25),title,authors:asText(r.authors,180),journal:asText(r.journal,160),url:/^https:\/\//i.test(r.url||'')?asText(r.url,900):'',note:asText(r.note,600)};data.customReferences.push(newRef);refIds.add(newRef.id);refSign.add(sign);refInserted++}
+      persist();state.demo=false;$('demoToggle').textContent='サンプルで画面を試す';refreshAll();toast(`${inserted}件の症例と${refInserted}件の文献を追加しました（無効・重複は除外）`);
+    }catch(err){alert('読み込みできませんでした：'+err.message)}finally{e.target.value=''}
+  });
+  $('removeAll').addEventListener('click',()=>{if(!data.records.length){toast('削除する症例はありません');return}if(!confirm(`この端末に保存した${data.records.length}件の全症例を削除しますか？\n参考文献の手動追加は残ります。削除前のJSONバックアップを推奨します。`))return;data.records=[];persist();refreshAll();toast('全症例を削除しました')});
+  // 初期処理
+  load();resetForm();refreshAll();syncLive();
+})();
+</script>
+</body>
+</html>
